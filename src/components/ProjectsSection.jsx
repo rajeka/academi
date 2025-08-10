@@ -46,9 +46,6 @@ const ProjectsSection = () => {
         <div className="flex flex-col items-start mt-0 p-2 justify-around">
           <div className="font-bold text-2xl pb-2">Featured Projects</div>
           <div className="grid gap-6 grid-cols-2">
-            {/* <div>Column 1 Content</div>
-            <div>Column 2 Content</div> */}
-
             {projects.map((project, index) => (
               <Card
                 key={index}
@@ -57,16 +54,6 @@ const ProjectsSection = () => {
                 imageSrc={project.getImageSrc()}
                 url={project.url}
               />
-
-              // <div key={project.url}>
-              //   <div className="text-l m-3 text-zinc-200">{project.title}</div>
-              //   <img src={photo1} width="250" alt="" />
-
-              //   <div className="text-m text-gray-200 m-3 flex flex-1">
-              //     {project.description}
-              //   </div>
-              // </div>
-              // {const imageSrc = project.getImageSrc();}
             ))}
           </div>
         </div>

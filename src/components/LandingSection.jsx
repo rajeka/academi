@@ -5,13 +5,15 @@ import FullScreenSection from './FullScreenSection';
 const greeting = 'Hello, I am Ranjan Ekanayake!';
 const bio1 = 'A Fullstack Engineer';
 const bio2 =
-  'I am a seasoned Full Stack Software Engineer with over 10 years of experience.\n \
-    I have deep expertise in building responsive, secure fullstack web applications using modern JavaScript frameworks such as React and Angular, along with backend development in Python and Java.\n \
-     I’ve worked extensively with both relational databases (e.g., PostgreSQL, MySQL) and NoSQL databases (e.g., MongoDB, Cassandra).\n \
-    My background combines full-stack development, a strong front-end focus, and a proven ability to deliver scalable, secure solutions. These strengths make me a strong fit for any fullstack position.';
+  'I am a seasoned Full Stack Software Engineer with over 10 years\
+ of experience building responsive, secure enterprise applications. \
+My expertise includes modern JavaScript frameworks such as React and Angular, \
+as well as API and backend development in Python and Java. \
+I have extensive experience with both relational databases (PostgreSQL, MySQL)\
+ and NoSQL databases (MongoDB, Cassandra). \n\r \
+With recent hands-on exposure to integrating AI into full stack solutions, I bring a unique combination of technical depth and innovation. I am well-suited for front-end, back-end, or full stack roles.\
+ Please refer to my attached resume for further details.';
 
-// Implement the UI for the LandingSection component according to the instructions.
-// Use a combination of Avatar, Heading and VStack components.
 const LandingSection = () => (
   <div className="bg-[#2A4365] h-[84vh] flex flex-col items-center justify-center">
     <section className="flex flex-col justify-center items-center">

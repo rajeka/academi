@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import FullScreenSection from './FullScreenSection';
-import './common.css';
 export default function NotFound() {
   return (
     <FullScreenSection

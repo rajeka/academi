@@ -4,9 +4,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Card = ({ title, description, imageSrc, url }) => {
-  // Implement the UI for the Card component according to the instructions.
-  // You should be able to implement the component with the elements imported above.
-  // Feel free to import other UI components from Chakra UI if you wish to.
+  const win_target = url.includes('construction') ? '_self' : '_blank';
+
   return (
     <div className="h-[350px] w-110 bg-zinc-50 rounded-2xl">
       <img
@@ -21,7 +20,7 @@ const Card = ({ title, description, imageSrc, url }) => {
       <span className="mb-2">
         <Link
           to={url}
-          target="_blank"
+          target={win_target}
           className="text-zinc-800 text-sm ml-2.5  hover:text-sky-500 transition-colors ease-in-out"
         >
           <span className="pr-2.5 font-semibold">See more</span>

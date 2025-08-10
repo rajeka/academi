@@ -1,5 +1,4 @@
 import FullScreenSection from './FullScreenSection';
-import './common.css';
 import { Link } from 'react-router-dom';
 
 const message = 'Coming soon...';
@@ -14,7 +13,7 @@ export default function Construction() {
         <img
           src="/construction.jpeg"
           alt="Page under construction"
-          className="photo-img"
+          className="w-[350px] h-[200px] rounded-2xl border-5 border-sky-500"
         />
         <p className="p-4">{message}</p>
         <Link
