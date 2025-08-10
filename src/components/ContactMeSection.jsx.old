@@ -1,0 +1,160 @@
+import React, { useEffect } from 'react';
+
+import { useFormik, Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import FullScreenSection from './FullScreenSection';
+import useSubmit from '../hooks/useSubmit';
+import { useAlertContext } from '../context/alertContext';
+
+const LandingSection = () => {
+  const { isLoading, response, submit } = useSubmit();
+  const { onOpen } = useAlertContext();
+
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      type: '',
+      comment: '',
+    },
+    validationSchema: Yup.object({
+      name: Yup.string()
+        .trim()
+        .min(2, 'Name must be at least 2 charactors')
+        .required('Name is required'),
+      email: Yup.string()
+        .email('Invalid email address')
+        .required('Email is required'),
+      comment: Yup.string().trim().required('Comment required'),
+    }),
+    validateOnMount: true,
+    onSubmit: async (values, { setSubmitting }) => {
+      try {
+        setSubmitting(true);
+        await submit('', values);
+      } catch (error) {
+        console.error('Error submitting form:', error);
+      } finally {
+        setSubmitting(false);
+      }
+    },
+  });
+  useEffect(() => {
+    if (response?.type === 'success') {
+      onOpen({
+        type: 'success',
+        message: `Thanks for contacting us, ${formik.values.name}!`,
+      });
+      formik.resetForm();
+    } else if (response?.type === 'error') {
+      onOpen({
+        type: 'error',
+        message: response.message || `Something went wrong. Please try again.`,
+      });
+    }
+  }, [response]);
+
+  return (
+    <FullScreenSection
+      isDarkBackground
+      className="bg-[#512DA8] min-w-auto max-w-full flex items-start justify-start"
+    >
+      <div className="flex flex-col items-start p-2 justify-start">
+        <div className="font-bold text-2xl pb-2">Contact me</div>
+
+        <div className="p-4 rounded-md w-95%">
+          {/* <form onSubmit={formik.handleSubmit}> */}
+          <Form className="flex flex-col gap-4">
+            <div
+              className="flex flex-col"
+              isInvalid={formik.touched.name && formik.errors.name}
+            >
+              <label className="block mb-1">Name</label>
+              <Field
+                name="name"
+                type="text"
+                className="w-full border rounded p-2"
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              <ErrorMessage
+                name="name"
+                component="div"
+                className="text-red-500 text-sm"
+              />
+              {/* <div>{formik.errors.name}</div> */}
+            </div>
+            <div isInvalid={formik.touched.email && formik.errors.email}>
+              <label htmlFor="email">Email Address</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              <div>{formik.errors.email}</div>
+            </div>
+            <div>
+              <label htmlFor="type">Type of enquiry</label>
+              <select
+                id="type"
+                name="type"
+                value={formik.values.type}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              >
+                <option value="hireMe">Freelance project proposal</option>
+                <option value="openSource">
+                  Open source consultancy session
+                </option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div isInvalid={formik.touched.comment && formik.errors.comment}>
+              <label className="block mb-1">Your Message</label>
+              <Field
+                as="textarea"
+                name="message"
+                rows="4"
+                className="w-full border rounded p-2"
+                value={formik.values.comment}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              <ErrorMessage
+                name="message"
+                component="div"
+                className="text-red-500 text-sm"
+              />
+              {/* <textarea id="comment" name="comment" height={250} /> */}
+              {/* <div>{formik.errors.comment}</div> */}
+            </div>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              loadingText="Submitting
+              className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </button>
+            
+            {/* <button
+              type="submit"
+              colorScheme="purple"
+              width="full"
+              isLoading={isLoading || formik.isSubmitting}
+              isDisabled={isLoading || !formik.isValid || !formik.dirty}
+              loadingText="Submitting"
+            >
+              Submit
+            </button> */}
+          </Form>
+        </div>
+      </div>
+    </FullScreenSection>
+  );
+};
+
+export default LandingSection;
