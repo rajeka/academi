@@ -1,8 +1,7 @@
 import React from 'react';
 import FullScreenSection from './FullScreenSection';
-//import { Box, Heading } from '@chakra-ui/react';
 import Card from './Card';
-// import photo1 from '../assets/images/photo1.jpg';
+
 const projects = [
   {
     title: 'AI Content Generator',

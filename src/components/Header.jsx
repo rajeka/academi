@@ -7,8 +7,7 @@ import {
   faStackOverflow,
 } from '@fortawesome/free-brands-svg-icons';
 
-// import useScrollHeader from '../hooks/useScrollHeader';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const socials = [
   {
@@ -38,14 +37,21 @@ const Header = () => {
     <div className="top-0 left-0 transform">
       <div className="flex items-center justify-between text-zinc-200">
         <nav className="flex gap-2 p-2">
-          <Link to="/">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? 'border-4 border-sky-600 rounded-full'
+                : 'hover:border-2 border-sky-500 rounded-full transition-all duration-300 ease-in-out hover:scale-105'
+            }
+          >
             <img
               src="/logo.png"
               alt="Home logo"
               className="w-[60px] h-[60px] border-2 border-sky-400 rounded-full"
               title="AcademiFlow.com"
             />
-          </Link>
+          </NavLink>
           <ul className="nav-links flex justify-between items-center gap-2 ">
             {
               /* Add social media links based on the `socials` data */
@@ -65,12 +71,30 @@ const Header = () => {
 
         <nav className="max-w-full mr-5">
           {/* Add links to Projects and Contact me section */}
-          <ul className="nav-links flex justify-between items-center gap-2 mx-3 ">
-            <li className="hover:text-sky-500 transition-colors ease-in-out">
-              <Link to="/projects">Projects</Link>
+          <ul className="nav-links flex justify-between items-center gap-4 mx-3 ">
+            <li>
+              <NavLink
+                to="/projects"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-sky-600 font-bold'
+                    : 'hover:text-sky-500 transition-colors ease-in-out'
+                }
+              >
+                Projects
+              </NavLink>
             </li>
-            <li className="hover:text-sky-500 transition-colors ease-in-out">
-              <Link to="/contact">Contact</Link>
+            <li>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-sky-600 font-bold'
+                    : 'hover:text-sky-500 transition-colors ease-in-out'
+                }
+              >
+                Contact
+              </NavLink>
             </li>
           </ul>
         </nav>

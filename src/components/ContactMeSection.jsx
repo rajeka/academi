@@ -2,11 +2,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import FullScreenSection from './FullScreenSection';
 import emailjs from 'emailjs-com';
-// import dotenv from 'dotenv';
-//import.meta.env.
-// dotenv.config({
-//   path: '.env.local',
-// });
+import toast from 'react-hot-toast';
+import { FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
 
 // Yup validation schema
 const ContactSchema = Yup.object().shape({
@@ -19,8 +16,13 @@ const ContactSchema = Yup.object().shape({
   message: Yup.string().min(10, 'Message too short').required('Required'),
 });
 export default function ContactMeSection() {
-  console.log(import.meta.env.VITE_SERVICE_ID);
+  const serviceTypeLabels = {
+    hireMe: 'Freelance project proposal',
+    openSource: 'Open source consultancy session',
+    other: 'Other...',
+  };
   const sendEmail = (values, { resetForm }) => {
+    const selectedLabel = serviceTypeLabels[values.serviceType] || '';
     emailjs
       .send(
         import.meta.env.VITE_SERVICE_ID,
@@ -28,20 +30,42 @@ export default function ContactMeSection() {
         {
           name: values.name,
           email: values.email,
-          ServiceType: values.serviceType,
+          serviceType: selectedLabel,
           message: values.message,
         },
         import.meta.env.VITE_PUBLIC_KEY
       )
       .then(() => {
-        alert('Message sent successfully!');
+        toast.custom((t) => (
+          <div
+            className={`flex items-center gap-3 shadow-lg rounded-lg p-3 text-white ${
+              t.visible ? 'animate-enter' : 'animate-leave'
+            }`}
+            style={{ background: '#16a34a' }} // Tailwind's green-600
+          >
+            <FiCheckCircle size={20} />
+            <span>Message sent successfully!</span>
+          </div>
+        ));
+
         resetForm();
       })
       .catch((err) => {
         console.log('Email send error: ', err);
-        alert('Failed to send message. Please try again later.');
+        toast.custom((t) => (
+          <div
+            className={`flex items-center gap-3 shadow-lg rounded-lg p-3 text-white ${
+              t.visible ? 'animate-enter' : 'animate-leave'
+            }`}
+            style={{ background: '#dc2626' }} // Tailwind's red-600
+          >
+            <FiAlertCircle size={20} />
+            <span>Failed to send message. Please try again later.</span>
+          </div>
+        ));
       });
   };
+
   return (
     <FullScreenSection
       isDarkBackground
@@ -54,11 +78,6 @@ export default function ContactMeSection() {
           initialValues={{ name: '', email: '', serviceType: '', message: '' }}
           validationSchema={ContactSchema}
           onSubmit={sendEmail}
-          // onSubmit={(values, { resetForm }) => {
-          //   console.log('Form Data:', values);
-          //   alert('Message sent successfully!');
-          //   resetForm();
-          // }}
         >
           {({ isSubmitting }) => (
             <Form className="flex flex-col gap-4 w-[90vw] p-4">
@@ -104,7 +123,7 @@ export default function ContactMeSection() {
                   <option value="openSource">
                     Open source consultancy session
                   </option>
-                  <option value="other">Other..</option>
+                  <option value="other">Other...</option>
                 </Field>
                 <ErrorMessage
                   name="serviceType"
@@ -132,7 +151,7 @@ export default function ContactMeSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-purple-600 text-white py-2 rounded hover:bg-purple-500"
+                className="bg-purple-600 font-semibold text-zinc-200 py-2 rounded hover:bg-purple-500"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>

@@ -4,10 +4,9 @@ import ProjectsSection from './components/ProjectsSection';
 import ContactMeSection from './components/ContactMeSection';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Layout from './Layout';
-import { AlertProvider } from './context/alertContext';
 import Construction from './components/Construction';
 import NotFound from './components/NotFound';
-import Alert from './components/Alert';
+import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
   {
@@ -24,11 +23,21 @@ const router = createBrowserRouter([
 ]);
 function App() {
   return (
-    <AlertProvider>
-      <RouterProvider router={router}>
-        <Alert />
-      </RouterProvider>
-    </AlertProvider>
+    <>
+      <RouterProvider router={router} />
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#fff',
+            color: '#333',
+            padding: '12px 16px',
+            borderRadius: '8px',
+          },
+        }}
+      />
+    </>
   );
 }
 
