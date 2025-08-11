@@ -1,6 +1,13 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import FullScreenSection from './FullScreenSection';
+import emailjs from 'emailjs-com';
+// import dotenv from 'dotenv';
+//import.meta.env.
+// dotenv.config({
+//   path: '.env.local',
+// });
+
 // Yup validation schema
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
@@ -12,6 +19,29 @@ const ContactSchema = Yup.object().shape({
   message: Yup.string().min(10, 'Message too short').required('Required'),
 });
 export default function ContactMeSection() {
+  console.log(import.meta.env.VITE_SERVICE_ID);
+  const sendEmail = (values, { resetForm }) => {
+    emailjs
+      .send(
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
+        {
+          name: values.name,
+          email: values.email,
+          ServiceType: values.serviceType,
+          message: values.message,
+        },
+        import.meta.env.VITE_PUBLIC_KEY
+      )
+      .then(() => {
+        alert('Message sent successfully!');
+        resetForm();
+      })
+      .catch((err) => {
+        console.log('Email send error: ', err);
+        alert('Failed to send message. Please try again later.');
+      });
+  };
   return (
     <FullScreenSection
       isDarkBackground
@@ -23,11 +53,12 @@ export default function ContactMeSection() {
         <Formik
           initialValues={{ name: '', email: '', serviceType: '', message: '' }}
           validationSchema={ContactSchema}
-          onSubmit={(values, { resetForm }) => {
-            console.log('Form Data:', values);
-            alert('Message sent successfully!');
-            resetForm();
-          }}
+          onSubmit={sendEmail}
+          // onSubmit={(values, { resetForm }) => {
+          //   console.log('Form Data:', values);
+          //   alert('Message sent successfully!');
+          //   resetForm();
+          // }}
         >
           {({ isSubmitting }) => (
             <Form className="flex flex-col gap-4 w-[90vw] p-4">
@@ -73,6 +104,7 @@ export default function ContactMeSection() {
                   <option value="openSource">
                     Open source consultancy session
                   </option>
+                  <option value="other">Other..</option>
                 </Field>
                 <ErrorMessage
                   name="serviceType"
