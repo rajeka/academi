@@ -13,22 +13,27 @@ const socials = [
   {
     icon: faEnvelope,
     url: 'mailto: rpekanayake@gmail.com',
+    title: 'Send an Email',
   },
   {
     icon: faGithub,
     url: 'https://github.com/rajeka',
+    title: 'My Github profile',
   },
   {
     icon: faLinkedin,
     url: 'https://www.linkedin.com/in/rpekanayake',
+    title: 'My LinkedIn profile',
   },
   {
     icon: faMedium,
     url: 'https://medium.com',
+    title: 'Medium site',
   },
   {
     icon: faStackOverflow,
     url: 'https://stackoverflow.com',
+    title: 'Stackoverflow site',
   },
 ];
 
@@ -49,7 +54,7 @@ const Header = () => {
               src="/logo.png"
               alt="Home logo"
               className="w-[60px] h-[60px] border-2 border-sky-400 rounded-full"
-              title="AcademiFlow.com"
+              title="AcademiFlow.com - Home"
             />
           </NavLink>
           <ul className="nav-links flex justify-between items-center gap-2 ">
@@ -60,7 +65,12 @@ const Header = () => {
                   key={index}
                   className="hover:text-sky-500 transition-colors ease-in-out"
                 >
-                  <a href={l.url} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={l.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={l.title}
+                  >
                     <FontAwesomeIcon icon={l.icon} size="xl" />
                   </a>
                 </li>
