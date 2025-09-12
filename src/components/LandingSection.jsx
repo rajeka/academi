@@ -7,10 +7,10 @@ const bio1 = 'A Fullstack Engineer';
 const bio2 =
   'I am a seasoned Full Stack Software Engineer with over 10 years\
  of experience building responsive, secure enterprise applications. \
-My expertise includes modern JavaScript frameworks such as React and Angular, \
+My expertise includes modern JavaScript, TypeScript frameworks such as React, Next.js, and Angular, \
 as well as API and backend development in Python and Java. \
 I have extensive experience with both relational databases (PostgreSQL, MySQL)\
- and NoSQL databases (MongoDB, Cassandra). \n\r \
+ and NoSQL databases MongoDB. \n\r \
 With recent hands-on exposure to integrating AI into full stack solutions, I bring a unique combination of technical depth and innovation. I am well-suited for front-end, back-end, or full stack roles.\
  Please refer to my attached resume for further details.';
 
