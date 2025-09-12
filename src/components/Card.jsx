@@ -7,7 +7,7 @@ const Card = ({ title, description, imageSrc, url }) => {
   const win_target = url.includes('construction') ? '_self' : '_blank';
 
   return (
-    <div className="h-[350px] w-110 bg-zinc-50 rounded-2xl">
+    <div className="h-[360px] w-110 bg-zinc-50 rounded-2xl">
       <img
         src={imageSrc}
         alt=""

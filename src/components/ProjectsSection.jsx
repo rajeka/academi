@@ -27,7 +27,7 @@ const projects = [
   {
     title: 'My Store',
     description:
-      'My Store is a full-featured e-commerce application where consumers can browse and purchase products, while administrators have complete control over managing the store.\n  A full-featured shopping platform with reviews, PayPal and Stripe integration, email receipts and more.\n',
+      'My Store is a full-featured e-commerce app, where consumers can browse and purchase products, while admin can manage the store.\n  A full-featured with reviews, PayPal and Stripe integration, email receipts and more.\n',
     getImageSrc: () => '/images/photo4.jpg',
     url: '/construction',
   },
