@@ -25,9 +25,9 @@ const projects = [
     url: '/construction',
   },
   {
-    title: 'Event planner',
+    title: 'My Store',
     description:
-      'A mobile application for leisure seekers to discover unique events and activities in their city with a few taps',
+      'My Store is a full-featured e-commerce application where consumers can browse and purchase products, while administrators have complete control over managing the store.\n  A full-featured shopping platform with reviews, PayPal and Stripe integration, email receipts and more.\n',
     getImageSrc: () => '/images/photo4.jpg',
     url: '/construction',
   },
