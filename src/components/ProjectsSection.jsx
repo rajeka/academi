@@ -1,35 +1,36 @@
-import React from 'react';
-import FullScreenSection from './FullScreenSection';
-import Card from './Card';
+import React from "react";
+import FullScreenSection from "./FullScreenSection";
+import Card from "./Card";
 
 const projects = [
   {
-    title: 'AI Content Generator',
+    title: "AI Content Generator",
     description:
-      'Create AI powered content generator for varied options. \n Integrated with Google Gemini AI, and buidl with Tailwind CSS, Shadcn UI with Mongo DB',
-    getImageSrc: () => '/images/photo1.jpg',
-    url: 'https://ai-gen-app-beta.vercel.app',
+      "Create AI powered content generator for varied options. \n Integrated with Google Gemini AI, and buidl with Tailwind CSS, Shadcn UI with Mongo DB",
+    getImageSrc: () => "/images/photo1.jpg",
+    url: "https://ai-gen-app-beta.vercel.app",
   },
   {
-    title: 'Next.Js/React Cash App',
+    title: "Next.Js/React Cash App",
     description:
-      'App allows to manage your transactions with income and expenses. Build with NextJs/React, Typescript, Tailwind CSS, Shadcn UI, Drizzle ORM, and PostgreSQL with Neon',
-    getImageSrc: () => '/images/photo2.jpg',
-    url: 'https://cash-app-murex.vercel.app',
+      "App allows to manage your transactions with income and expenses. Build with NextJs/React, Typescript, Tailwind CSS, Shadcn UI, Drizzle ORM, and PostgreSQL with Neon",
+    getImageSrc: () => "/images/photo2.jpg",
+    url: "https://cash-app-murex.vercel.app",
   },
   {
-    title: 'Photo Gallery',
+    title: "Photo Gallery",
     description:
-      'A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income',
-    getImageSrc: () => '/images/photo3.jpg',
-    url: '/construction',
+      "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
+    getImageSrc: () => "/images/photo3.jpg",
+    url: "/construction",
   },
   {
-    title: 'My Store',
+    title: "My Store",
     description:
-      'My Store is a full-featured e-commerce app, where consumers can browse and purchase products, while admin can manage the store.\n  A full-featured with reviews, PayPal and Stripe integration, email receipts and more.\n',
-    getImageSrc: () => '/images/photo4.jpg',
-    url: '/construction',
+      "My Store is a full-featured e-commerce app, where consumers can browse and purchase products, while admin can manage the store. \
+      A fully-featured with reviews, PayPal and Stripe, email receipts etc.\n",
+    getImageSrc: () => "/images/photo4.jpg",
+    url: "/construction",
   },
 ];
 
@@ -43,8 +44,10 @@ const ProjectsSection = () => {
         className="bg-[#14532d] min-w-auto max-w-full flex items-center justify-center"
       >
         <div className="flex flex-col items-start mt-0 p-2 justify-around">
-          <div className="font-bold text-2xl pb-2">Featured Projects</div>
-          <div className="grid gap-6 grid-cols-2">
+          <div className="font-bold sm:text-sm sm:text-center md:text-2xl pb-2">
+            Featured Projects
+          </div>
+          <div className="grid md:grid-cols-2 gap-4">
             {projects.map((project, index) => (
               <Card
                 key={index}
