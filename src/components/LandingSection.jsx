@@ -10,7 +10,7 @@ const LandingSection = () => (
       <img
         src="/myself.jpeg"
         alt="Your Avatar"
-        className="w-[180px] h-[180px] rounded-b-full mt-5 border-4 border-[#61dafb] shadow-md"
+        className="md:w-[180px] md:h-[180px] md:rounded-b-full mt-5 md:border-4 border-[#61dafb] shadow-md w-[100px] h-[100px] rounded-full"
       />
       <p className="text-xl text-zinc-300 m-5">{greeting}</p>
     </section>
@@ -19,23 +19,30 @@ const LandingSection = () => (
         <h1>A Fullstack Engineer</h1>
       </div>
       <div>
-        <article className="p-3 leading-relaxed tracking-wide">
-          <p>
-            I am a seasoned Full Stack Software Engineer with over 10 years of
-            experience building responsive, secure enterprise applications. My
-            expertise includes modern JavaScript, TypeScript using modern
-            frameworks such as React, Next.js, and Angular along with API and
-            backend development in Python, and Java.
+        <article className="p-3 leading-normal tracking-normal">
+          <p className="mb-1">
+            I'm a Full Stack Software Engineer with over 10 years of experience
+            crafting responsive, secure enterprise applications that solve real
+            business problems.
+          </p>
+          <p className="my-1">
+            I specialize in modern JavaScript and TypeScript ecosystems—building
+            with React, Next.js, and Angular on the frontend, while architecting
+            robust APIs and backend systems in Python and Java. My database
+            expertise spans both relational (PostgreSQL, MySQL) and NoSQL
+            (MongoDB) solutions, allowing me to choose the right tool for each
+            challenge.
+          </p>
+          <p className="my-1">
+            Recently, I've been integrating AI capabilities into full-stack
+            applications, exploring how machine learning can enhance user
+            experiences and business outcomes.
           </p>
           <p>
-            I have extensive experience with both relational databases
-            (PostgreSQL, MySQL) and NoSQL databases MongoDB. With recent
-            hands-on exposure to integrating AI into full stack solutions.
-          </p>
-          <p>
-            I bring a unique combination of technical depth and innovation. I am
-            well-suited for front-end, back-end, or full stack roles. Please
-            refer to my attached resume for further details.
+            Whether you need a frontend specialist, backend engineer, or
+            full-stack engineer, I bring both the technical depth and practical
+            experience to drive your projects forward. Please refer to my
+            attached resume for further details.
           </p>
         </article>
       </div>

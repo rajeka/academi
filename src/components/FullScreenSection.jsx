@@ -1,10 +1,8 @@
-import React from 'react';
-// import { VStack } from '@chakra-ui/react';
-
+import React from "react";
 /**
  * Illustrates the use of children prop and spread operator
  */
-const FullScreenSection = ({ children, isDarkBackground, ...boxProps }) => {
+const FullScreenSection = ({ children, ...boxProps }) => {
   return (
     <div>
       <div {...boxProps}>{children}</div>
