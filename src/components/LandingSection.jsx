@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FullScreenSection from "./FullScreenSection";
 
 const greeting = "Hello, I am Ranjan Ekanayake!";
 
@@ -14,12 +13,12 @@ const LandingSection = () => (
       />
       <p className="text-xl text-zinc-300 m-5">{greeting}</p>
     </section>
-    <section className="z-0 bg-zinc-200 text-zinc-700 min-w-auto rounded-lg max-w-[1100px] flex flex-col items-center justify-center">
+    <section className="z-0 bg-zinc-200 text-zinc-700 min-w-auto rounded-lg max-w-[900px] flex flex-col items-center justify-center shadow-[2px_4px_8px_rgba(0,0,0,0.25)]">
       <div className="mt-2 font-bold text-3xl pt-2 text-sky-900">
         <h1>A Fullstack Engineer</h1>
       </div>
       <div>
-        <article className="p-3 leading-normal tracking-normal">
+        <article className="px-3 leading-normal tracking-normal text-sm">
           <p className="mb-1">
             I'm a Full Stack Software Engineer with over 10 years of experience
             crafting responsive, secure enterprise applications that solve real
@@ -46,7 +45,7 @@ const LandingSection = () => (
           </p>
         </article>
       </div>
-      <p className="mb-3 pb-1 font-bold rounded-2xl px-5 text-sky-700 hover:bg-zinc-500 hover:text-sky-500 transition-colors ease-in-out">
+      <p className="mb-2 pb-1 font-bold rounded-2xl px-5 text-sky-700 hover:bg-zinc-500 hover:text-sky-500 transition-colors ease-in-out">
         <Link to="/my_profile.pdf" target="_blank">
           My Resume
         </Link>

@@ -1,6 +1,6 @@
 # Academiflow.com - My Profile site.
 
-This site is introduction about Ranjan Ekanayake
+This site is a portfolio about Ranjan Ekanayake.
 
 - Tools used in here are.
 - React 19, React Router V17
@@ -10,6 +10,6 @@ This site is introduction about Ranjan Ekanayake
 
 Depicts:
 Intro to my professional carrier.
-
+- Breif introduction of Ranjan Ekanayake Full-stack developer
 - shown recent projects worked on.
 - Cantact Me page.
