@@ -13,7 +13,7 @@ const Card = ({ title, description, imageSrc, url }) => {
         alt=""
         className="object-fill rounded-2xl h-48 w-120"
       />
-      <div className="font-bold mt-3 ml-3 mb-1 text-black">{title}</div>
+      <div className="font-bold mt-2 ml-3 mb-1 text-black">{title}</div>
       <div className="text-xs tracking-normal text-gray-800 mx-3 mb-1 flex flex-1">
         {description}
       </div>

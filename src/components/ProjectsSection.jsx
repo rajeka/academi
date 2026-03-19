@@ -18,18 +18,19 @@ const projects = [
     url: "https://cash-app-murex.vercel.app",
   },
   {
+    title: "My Store",
+    description:
+      "My Store is a full-featured e-commerce app, where consumers can browse and purchase products, while admin can manage the store. \
+      A fully-featured with reviews, PayPal and Stripe, email receipts etc. \r\n\
+      Build with NextJs/React, Typescript, Tailwind CSS, Shadcn UI, Prisma, & Postgres etc.",
+    getImageSrc: () => "/images/photo4.jpg",
+    url: "https://my-store-theta-orpin.vercel.app/",
+  },
+  {
     title: "Photo Gallery",
     description:
       "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
     getImageSrc: () => "/images/photo3.jpg",
-    url: "/construction",
-  },
-  {
-    title: "My Store",
-    description:
-      "My Store is a full-featured e-commerce app, where consumers can browse and purchase products, while admin can manage the store. \
-      A fully-featured with reviews, PayPal and Stripe, email receipts etc.\n",
-    getImageSrc: () => "/images/photo4.jpg",
     url: "/construction",
   },
 ];
