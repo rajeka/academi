@@ -27,6 +27,15 @@ const projects = [
     url: "https://my-store-theta-orpin.vercel.app/",
   },
   {
+    title: "IdeaDrop",
+    description:
+      "It is Idea sharing Full stack MERN app with TanStack Router, TanStack Query on the frontend etc. \r\n\
+      Build with React 19, Typescript, Tailwind CSS, & backend Node, Express API Mongo with authentication \r\n\
+      & authorization using JWT etc.",
+    getImageSrc: () => "/images/photo5.jpg",
+    url: "https://idea-drop-ui-puce.vercel.app/",
+  },
+  {
     title: "Photo Gallery",
     description:
       "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
