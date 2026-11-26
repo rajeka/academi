@@ -36,6 +36,14 @@ const projects = [
     url: "https://idea-drop-ui-puce.vercel.app/",
   },
   {
+    title: "CoolBreeze AC",
+    description:
+      "AI support agent handles your questions, checks orders and delivery status, and passes refund cases to a manager agent, with a risk agent checking for fraud. Agent refers to company policies, and staff can watch every decision live. \r\n\
+      Build with Python, Django , Agentic AI, LLM, RAG using ChromaDB, with Server Sent Events (SSE) \r\n",
+    getImageSrc: () => "/images/photo6.png",
+    url: "https://web-production-595083a1.up.railway.app/",
+  },
+  {
     title: "Photo Gallery",
     description:
       "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
